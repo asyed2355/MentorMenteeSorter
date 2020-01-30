@@ -39,7 +39,7 @@ Option Explicit
 	'--Misc--
 		'assignGroupNumbersToMentors: Assigns a group identifier to all mentors (e.g. "Gr 1-11", "Gr 1-12", "Gr 3-38" etc.)
 	
-	'--Misc--
+	'--Matching Function--
 		'MatchMenteesWithMentors: Performs the actual matching of mentors with mentees. Four itterations are performed, with the criteria becoming more relaxed in each itteration. Any students who haven't been allocated by the end of the four itterations are added to the 'Unmatched Students' tab.
 		
 	'--Testing--
