@@ -1,5 +1,8 @@
 Option Explicit
 
+'----- Global variables (start) -----
+'These variables are declared before the program is run and will be populated with data once the user has completed the user form.
+
 '---File locations---
 Public strFilename As String
 Public degreesByGroupFilename As String
@@ -12,10 +15,12 @@ Public DegreesByCategoryTabName As String
 '---Mentees per mentor---
 Public menteesPerMentor As Byte
 
-'--- Helper class ---
+'--- Instances of classes ---
 Public helper As GeneralHelperClass
 Public entityCreator As EntityConverter
 Public DbContext As DbContext
+
+'----- Global variables (end) -----
 
 Public Sub FormatMentees()
 '
@@ -28,7 +33,6 @@ Public Sub FormatMentees()
     
     'Instantiate global helper and dbContext objects
     Set helper = New GeneralHelperClass
-    Set entityCreator = New EntityConverter
     Set DbContext = New DbContext
     
     'Open workbooks
@@ -46,8 +50,13 @@ Public Sub FormatMentees()
         MsgBox "Degree List tab not found."
         Exit Sub
     End If
+    
+    'As external sheets have been opened successfully, instantiate EntityConverter object
+    Set entityCreator = New EntityConverter
         
-'<----- GLOBAL VARIABLES start ----->
+'----- PROGRAM START -----
+									
+'----- Variables (start) -----
 
     '--- Worksheet objects ---
     Dim MenteeTab As Worksheet: Set MenteeTab = CurrentWorkbook.Worksheets(MenteeTabName)
@@ -80,9 +89,9 @@ Public Sub FormatMentees()
     Dim studentsWithErrors As Collection: Set studentsWithErrors = New Collection
     Dim unmatchedMentees As Collection: Set unmatchedMentees = New Collection
     
-'<----- GLOBAL VARIABLES end ----->
+'----- Variables (end) -----
 
-'<----- FUNCTION CALLS start ----->
+'----- Function calls (start) -----
 
     'Close 'Degrees By Group' spreadsheet
     Call DbContext.closeWorkbook(degreesByGroupWorkbook, False)
@@ -97,21 +106,21 @@ Public Sub FormatMentees()
     'Set CurrentWorkbook to this workbook
     Set CurrentWorkbook = ThisWorkbook
     
-	'Delete all existing tabs
+    'Delete all existing tabs
     Call newTab.DeleteAllTabs(CurrentWorkbook, mainTabNameArray, GlobalTabAfter)
 	
-	'Create new tabs and sort students into them as needed
+    'Create new tabs and sort students into them as needed
     Call newTab.AddStreamTabs(CurrentWorkbook, mentees, streamNames, groups, GlobalTabAfter)
     Call newTab.AddErrorsTab(CurrentWorkbook, studentsWithErrors, GlobalTabAfter)
     
-	'Match mentees with mentors
-	Call helper.MatchMenteesWithMentors(mentees, mentors, menteesPerMentor)
+    'Match mentees with mentors
+    Call helper.MatchMenteesWithMentors(mentees, mentors, menteesPerMentor)
 	
-	'Print results into group tabs and add a tab for all unmatched mentees
+    'Print results into group tabs and add a tab for all unmatched mentees
     Call newTab.AddGroupTabs(CurrentWorkbook, mentors, streamNames, groups, menteesPerMentor, GlobalTabAfter)
     Call newTab.AddUnmatchedMenteesTab(CurrentWorkbook, mentees, GlobalTabAfter)
-
-'<----- FUNCTION CALLS end ----->
+                                                                                                                                                
+'----- Function calls (end) -----
 
     'If the dummy tab still exists (as a by-product of the DeleteAllTabs() function) remove it
 	If helper.sheetExists(CurrentWorkbook, "DummyWorksheet") Then
@@ -119,4 +128,7 @@ Public Sub FormatMentees()
         CurrentWorkbook.Sheets("DummyWorksheet").Delete
         Application.DisplayAlerts = True
     End If
+                                                                                                                                                
+'----- PROGRAM END -----
+                                                                                                                                                
 End Sub
