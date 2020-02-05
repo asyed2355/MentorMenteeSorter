@@ -1,27 +1,27 @@
-## MENTOR/MENTEE SORTER
+# MENTOR/MENTEE SORTER
 This is a program I created for the Student Affairs and Engagement (SAE) team at the University of Sydney’s Faculty of Arts and Social Sciences. Specifically, this program is designed to assist in the management of the Faculty of Arts and Social Sciences’ Mentorship Program by automating the process of matching mentors with mentees in preparation for the running of the Mentorship Program each semester.
 This program was written in Visual Basic for Applications (VBA) and is functional within the ‘Microsoft Visual Basic for Applications’ environment.
 
-# In order for this project to function, the following datasets are needed:
+## In order for this project to function, the following datasets are needed:
 - 1. 'Degree-by-Group' list;
 - 2. Mentor/Mentee list
 
-# 1. 'Degree-by-Group' list
-All degrees are assigned to a group (e.g. the Bachelor of Economics belongs to group '1', the Bachelor of Arts belongs to group '3', etc.) There are a total of 3 groups - '1', '2' and '3' - and a roughly 80 unique degrees in each cohort (although this number fluctuates each semester). There is a one-to-many relationship between degree and group.
+## 1. 'Degree-by-Group' list
+All degrees are assigned to a group (e.g. the Bachelor of Economics belongs to group '1', the Bachelor of Arts belongs to group '3', etc.) There is a total of 3 groups - '1', '2' and '3' - and a roughly 80 unique degrees in each cohort (although this number fluctuates each semester). There is a one-to-many relationship between degree and group.
 
 For this program to function, it must be able to reference a dataset that lists degree names and their corresponding group.
 Example:
 
-| DegreeName | Group |
-| Bachelor of Visual Arts | 1 |
-| Bachelor of Visual Arts/Bachelor of Advanced Studies | 1 |
-| Bachelor of Visual Arts/Bachelor of Advanced Studies | 1 |
-| Bachelor of Education | 2 |
-| Bachelor of Education (Early Childhood) | 2 |
-| Bachelor of Arts | 3 |
-| Bachelor of Arts (Languages) | 3 |
+-	| DegreeName | Group |
+-	| Bachelor of Visual Arts | 1 |
+-	| Bachelor of Visual Arts/Bachelor of Advanced Studies | 1 |
+-	| Bachelor of Visual Arts/Bachelor of Advanced Studies | 1 |
+-	| Bachelor of Education | 2 |
+-	| Bachelor of Education (Early Childhood) | 2 |
+-	| Bachelor of Arts | 3 |
+-	| Bachelor of Arts (Languages) | 3 |
 
-# 2. Mentor/Mentee list
+## 2. Mentor/Mentee list
 In order for this program to accurately convert mentor and mentee data into instances of classes, columns must be ordered in the following configuration:
 
 ---Mentor list---
@@ -54,5 +54,5 @@ In order for this program to accurately convert mentor and mentee data into inst
 
 This complied with the configuration of columns in the raw data that is exported by the university’s registration system at the time of this program’s production.
 
-# Notes:
+## Notes:
 - 'Degree' and 'Course' are used interchangeably in this project. It is common parlance to refer to a student’s degree as their course, and vice-versa. In this context degree == course.
