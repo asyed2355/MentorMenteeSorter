@@ -3,8 +3,8 @@ This is a program I created for the Student Affairs and Engagement (SAE) team at
 This program was written in Visual Basic for Applications (VBA) and is functional within the ‘Microsoft Visual Basic for Applications’ environment.
 
 ## In order for this project to function, the following datasets are needed:
-- 1. 'Degree-by-Group' list;
-- 2. Mentor/Mentee list
+- Degree-by-Group list;
+- Mentor/Mentee list
 
 ## 1. 'Degree-by-Group' list
 All degrees are assigned to a group (e.g. the Bachelor of Economics belongs to group '1', the Bachelor of Arts belongs to group '3', etc.) There is a total of 3 groups - '1', '2' and '3' - and a roughly 80 unique degrees in each cohort (although this number fluctuates each semester). There is a one-to-many relationship between degree and group.
