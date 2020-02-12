@@ -181,7 +181,7 @@ ByRef StudentsWithErrorsCollection As Collection)
             
             '---If addStudentToCollection is still true, continue
             If Not (addStudentToCollection) Then
-                m = Nothing
+                Set m = Nothing
                 moveStatus = ""
             Else
                 
