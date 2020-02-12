@@ -93,26 +93,25 @@ Optional TabAfter As String)
     Dim RowNumber As Long: Let RowNumber = 2
     For i = 1 To menteeCollection.Count
         With Workbook.Sheets("Unmatched Mentees")
-            'Add SID/Unikey
-            If menteeCollection(i).studentID <= 1 Then
-               .Range("C" & RowNumber).Value = menteeCollection(i).uniKey
-            Else
-                .Range("C" & RowNumber).Value = menteeCollection(i).studentID
-            End If
-            
-            .Range("B" & RowNumber).Value = menteeCollection(i).stream.FullName
-            .Range("D" & RowNumber).Value = menteeCollection(i).FirstName
-            .Range("E" & RowNumber).Value = menteeCollection(i).LastName
-            .Range("F" & RowNumber).Value = menteeCollection(i).course.CourseName
-            .Range("G" & RowNumber).Value = menteeCollection(i).Major1
-            .Range("H" & RowNumber).Value = menteeCollection(i).Major2
-            .Range("I" & RowNumber).Value = menteeCollection(i).Email
-            .Range("J" & RowNumber).Value = menteeCollection(i).Mobility
+            .Range("C" & RowNumber).Value = menteeCollection(i).stream.FullName
+                'Add SID/Unikey
+                If menteeCollection(i).studentID <= 1 Then
+                   .Range("D" & RowNumber).Value = menteeCollection(i).uniKey
+                Else
+                    .Range("D" & RowNumber).Value = menteeCollection(i).studentID
+                End If
+            .Range("E" & RowNumber).Value = menteeCollection(i).FirstName
+            .Range("F" & RowNumber).Value = menteeCollection(i).LastName
+            .Range("G" & RowNumber).Value = menteeCollection(i).course.CourseName
+            .Range("H" & RowNumber).Value = menteeCollection(i).Major1
+            .Range("I" & RowNumber).Value = menteeCollection(i).Major2
+            .Range("J" & RowNumber).Value = menteeCollection(i).Email
+            .Range("K" & RowNumber).Value = menteeCollection(i).Mobility
         End With
         Let RowNumber = RowNumber + 1
     Next i
     Workbook.Sheets("Unmatched Mentees").Cells.EntireColumn.AutoFit
-
+    Workbook.Sheets("Unmatched Mentees").UsedRange.Borders.LineStyle = xlContinuous
 End Sub
 
 Public Sub CreateDuplicatesTab( _
