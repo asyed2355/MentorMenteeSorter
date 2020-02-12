@@ -179,7 +179,7 @@ ByRef StudentsWithErrorsCollection As Collection)
             
             '---CREATE MENTEE/MENTOR OBJECT---'
             
-            '---If addStudentToCollection is still true, continue
+            '---If addStudentToCollection is still true, continue. Else i++
             If Not (addStudentToCollection) Then
                 Set m = Nothing
                 moveStatus = ""
