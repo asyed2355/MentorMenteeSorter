@@ -1,8 +1,9 @@
 '---CONSTRUCTOR AND UNLOAD---
 
 Private Sub UserForm_Initialize()
-    txtMenteeMentorLocation.Text = "C:\Users\a\Desktop\WORK FILES\MentorMenteeList.xlsx"
-    txtDegreeByGroupLocation.Text = "C:\Users\a\Desktop\WORK FILES\Degrees By Group.xlsx"
+    'Default values on initialize
+    txtMenteeMentorLocation.Text = "C:\Users\a\Mentor Mentee List.xlsx"
+    txtDegreeByGroupLocation.Text = "C:\Users\a\Degrees By Group.xlsx"
     txtMenteesPerMentor.Text = "10"
     txtMenteeTab.Text = "Mentee Dump"
     txtMentorTab.Text = "Mentors"
