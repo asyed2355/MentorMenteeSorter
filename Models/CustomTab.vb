@@ -304,9 +304,7 @@ Optional ByRef TabAfter As String)
         RowNumber = RowNumber + 1
         'menteeCollection.Remove (j)
         End If
-        
-            
-        
+
         Next j
         wb.Sheets(streamTabName).UsedRange.Borders.LineStyle = xlContinuous
         wb.Sheets(streamTabName).Cells.EntireColumn.AutoFit
@@ -565,47 +563,41 @@ End Sub
 
 Public Sub DeleteAllTabs( _
 ByRef Workbook As Workbook, _
-ByRef TabsToKeep As Variant, _
 ByRef GlobalTabAfter As String)
-
+   
     Dim helper As GeneralHelperClass: Set helper = New GeneralHelperClass
+    Dim tabToKeep As String: Let tabToKeep = "START_HERE"
+    Dim i As Integer
     
     'Turn off notifications
     Application.DisplayAlerts = False
     
-    Dim i As Integer
-    Dim j As Byte
-    Dim sheetOnTabsToKeepList As Boolean
+    'Set global 'TabAfter' variable to START_HERE tab's name
+    Let GlobalTabAfter = "START_HERE"
     
-    'Creating a dummy sheet so that at least one tab remains once all tabs are deleted.
-    If Not (helper.sheetExists(Workbook, "DummyWorksheet")) Then
-        Dim dummyWorksheet As Worksheet
-        Set dummyWorksheet = Workbook.Worksheets.Add(Type:=xlWorksheet, after:=Sheets(Sheets.Count))
-        With dummyWorksheet
-            .Name = "DummyWorksheet"
-        End With
+    If Not helper.sheetExists(Workbook, tabToKeep) Then
+        'Creating a dummy sheet so that at least one tab remains once all tabs are deleted (if the START_HERE tab goes missing).
+        If Not (helper.sheetExists(Workbook, "DummyWorksheet")) Then
+            Dim dummyWorksheet As Worksheet
+            Set dummyWorksheet = Workbook.Worksheets.Add(Type:=xlWorksheet, after:=Sheets(Sheets.Count))
+            With dummyWorksheet
+                .Name = "DummyWorksheet"
+            End With
+        End If
+        Let GlobalTabAfter = "DummyWorksheet"
+        Let tabToKeep = "DummyWorksheet"
     End If
-    
-    'Set global 'TabAfter' variable to dummy tab's name
-    Let GlobalTabAfter = "DummyWorksheet"
-    
+
     'Loop through
-    For i = (Workbook.Worksheets.Count - 1) To 1 Step -1
-    sheetOnTabsToKeepList = False
-        For j = 0 To helper.getLength(TabsToKeep) - 1
-            If Workbook.Worksheets(i).Name = TabsToKeep(j) Then
-                sheetOnTabsToKeepList = True
-                Exit For
-            End If
-        Next j
-        If Not (sheetOnTabsToKeepList) Then
+    For i = Workbook.Worksheets.Count To 1 Step -1
+        If Workbook.Worksheets(i).Name <> tabToKeep Then
             Workbook.Worksheets(i).Delete
         End If
     Next i
 
     'Turn notifications back on
     Application.DisplayAlerts = True
-    
+
 End Sub
 
 
