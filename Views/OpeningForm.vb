@@ -50,6 +50,7 @@ Private Sub btnRun_Click()
         Let MenteeTabName = txtMenteeTab.Text
         Let MentorTabName = txtMentorTab.Text
         Let DegreesByCategoryTabName = txtDegreeTab.Text
+        Let runProgram = True
 
         Unload OpeningForm
     End If
