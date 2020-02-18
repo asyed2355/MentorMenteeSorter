@@ -20,6 +20,9 @@ Public helper As GeneralHelperClass
 Public entityCreator As EntityConverter
 Public DbContext As DbContext
 
+'--- Check to ensure that form wasn't closed---
+Public runProgram As Boolean
+
 '----- Global variables (end) -----
 
 Public Sub FormatMentees()
@@ -28,6 +31,8 @@ Public Sub FormatMentees()
 '
 
 '
+    Let runProgram = False
+        
     'Open Userform
     OpeningForm.Show vbModal
     
@@ -35,6 +40,10 @@ Public Sub FormatMentees()
     Set helper = New GeneralHelperClass
     Set DbContext = New DbContext
     
+    If Not (runProgram) Then
+        Exit Sub
+    End If
+                        
     'Open workbooks
     Dim CurrentWorkbook As Workbook: Set CurrentWorkbook = DbContext.openWorkbook(strFilename)
     Dim degreesByGroupWorkbook As Workbook: Set degreesByGroupWorkbook = DbContext.openWorkbook(degreesByGroupFilename)
