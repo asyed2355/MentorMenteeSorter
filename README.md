@@ -2,6 +2,8 @@
 This is a program I created for the Student Affairs and Engagement (SAE) team at the University of Sydney’s Faculty of Arts and Social Sciences. Specifically, this program is designed to assist in the management of the Faculty of Arts and Social Sciences’ Mentorship Program by automating the process of matching mentors with mentees in preparation for the running of the Mentorship Program each semester.
 This program was written in Visual Basic for Applications (VBA) and is functional within the ‘Microsoft Visual Basic for Applications’ environment.
 
+>> A working version of this sorter that uses sample student data can be downloaded here: https://drive.google.com/drive/folders/1KFkRDp1szwqjV_fdRwB62Df6mnOpalR9?usp=sharing.
+
 ## In order for this project to function, the following datasets are needed:
 - Degree-by-Group list;
 - Mentor/Mentee list
