@@ -5,11 +5,11 @@ This program was written in Visual Basic for Applications (VBA) and is functiona
 ## Download:
 A working version of this program and a set of sample student data can be downloaded here: https://drive.google.com/drive/folders/1KFkRDp1szwqjV_fdRwB62Df6mnOpalR9?usp=sharing.
 
-## In order for this project to function, the following datasets are needed:
-- Degree-by-Group list;
+## In order for this project to function, the following data sets are needed:
+- Degree-by-Group table;
 - Mentor/Mentee list
 
-## 1. 'Degree-by-Group' list
+## 1. 'Degree-by-Group' table
 All degrees are assigned to a group (e.g. the Bachelor of Economics belongs to group '1', the Bachelor of Arts belongs to group '3', etc.) There is a total of 3 groups - '1', '2' and '3' - and a roughly 80 unique degrees in each cohort (although this number fluctuates each semester). There is a one-to-many relationship between degree and group.
 
 For this program to function, it must be able to reference a dataset that lists degree names and their corresponding group.
@@ -58,4 +58,4 @@ In order for this program to accurately convert mentor and mentee data into inst
 This complied with the configuration of columns in the raw data that is exported by the university’s registration system at the time of this program’s production.
 
 ## Notes:
-- 'Degree' and 'Course' are used interchangeably in this project. It is common parlance to refer to a student’s degree as their course, and vice-versa. In this context degree == course.
+- 'Degree' and 'Course' are used interchangeably in this project. It is common parlance at the University of Sydney to refer to a student’s degree as their course, and vice-versa. In this context, degree == course.
