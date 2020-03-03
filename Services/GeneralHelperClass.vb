@@ -520,7 +520,7 @@ MaxAllocations As Byte)
 						End If
 						Case 4
 						'Itteration 4
-						If UCase(menteeCollection(j).Group) = UCase(mentorCollection(k).Group) Then
+						If UCase(menteeCollection(j).course.Group) = UCase(mentorCollection(k).course.Group) Then
 							If menteeCollection(j).stream.FullName = mentorCollection(k).stream.FullName Then
 								matchFound = True
 							End If
